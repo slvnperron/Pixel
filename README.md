@@ -56,3 +56,21 @@ node batch --u USERNAME --p PASSWORD --s SESSION_CODE --nrc STARTING_NRC
 ```
 
 This operation will batch fetching to Pixel from STARTING___NRC to 99999 (a NRC can only have 5 digits)_
+
+### Accessing results
+
+Retreiving all courses:
+
+``` bash
+mongo pixel
+> db.courses.find()
+```
+
+Retreiving courses with custom queries:
+
+``` bash
+mongo pixel
+> db.courses.find({ session: '201009' })
+```
+
+You can export the whole database JSON with mongoexport
