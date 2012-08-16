@@ -10,31 +10,47 @@ An external API for the Laval University's [Pixel](https://pixel.fsg.ulaval.ca) 
 ## Installation
 
 * Install NPM, on Ubuntu it's as simple as:
+
 ``` bash
 	sudo apt-get install npm
 ```
+
 * Install MongoDB
-```
+
+``` bash
 	sudo apt-get install mongodb
-```	
-* Install NPM modules
 ```
+
+* Install NPM modules
+
+``` bash
 	npm install numpad optimist mongojs jsdom
 ```
+
 * And you're ready to go
 
 ## Usage
 
-* --session is a session code with the form YYYYmm where mm={01/05/09}.
-```	
+* --s is a session code with the form YYYYmm where mm={01/05/09}.
+
+```	bash
 	Fall 2010 is 201009
 ```
+
 * --p is your Pixel password, which _may_ be different from your Capsule's password.
 
 ### Single NRC Api
 
 Pixel is very simple to use :
+
 ``` bash
-node spider.js --u USERNAME --p PASSWORD --session CODE --nrc NRC
+node spider.js --u USERNAME --p PASSWORD --s CODE --nrc NRC
 ```
 
+### Batching NRCs in a session
+
+Pixel can batch multiples NRCs in a single session :
+
+``` bash
+node batch --u USERNAME --p PASSWORD --s SESSION_CODE --nrc STARTING_NRC
+```

@@ -12,8 +12,8 @@ var databaseUrl = "127.0.0.1/pixel"; // "username:password@example.com/mydb"
 var collections = ["courses"]
 var db = require("mongojs").connect(databaseUrl, collections);
 
-if(argv.session == undefined) {
-    console.log("You need to specify a session (--session)");
+if(argv.s == undefined) {
+    console.log("You need to specify a session (--s)");
     process.exit(0);
 }
 
@@ -35,7 +35,7 @@ if(argv.p == undefined) {
 var l = login(argv.u, argv.p);
 
 l.on('success', function(opts) {
-    var s = pSession.change(opts, argv.session);
+    var s = pSession.change(opts, argv.s);
     
     s.on('success', function(nOpts, sessionCode) {
         console.log("Session changed to", sessionCode);
