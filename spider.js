@@ -5,6 +5,7 @@ var querystring = require('querystring');
 var pSession = require('./session.js');
 var login = require('./login.js').login;
 var Nrc = require('./nrc.js');
+var numpad = require('numpad');
 var Seq = require('./seq.js');
 var argv = require('optimist').argv;
 var databaseUrl = "127.0.0.1/pixel"; // "username:password@example.com/mydb"
@@ -39,7 +40,7 @@ l.on('success', function(opts) {
     s.on('success', function(nOpts, sessionCode) {
         console.log("Session changed to", sessionCode);
         
-        var course = Nrc.change(nOpts, argv.nrc);
+        var course = Nrc.change(nOpts, numpad(argv.nrc, 5));
         
         course.once('success', function(o, n, nrcHtml) {
             course.scrap(nrcHtml);
