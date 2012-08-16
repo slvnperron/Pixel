@@ -119,12 +119,7 @@ var lookIfCompleted = function(COURSE) {
     // SAVE TO DATABASE
     console.log("Saving to database...");
     
-    db.courses.find({session: COURSE.session, nrc: COURSE.nrc}, function(docs){
-        if(docs != null) { // Removes duplicates
-            db.courses.remove(docs);
-        }
-    });
-    
+    db.courses.remove({session: COURSE.session, nrc: COURSE.nrc});    
 	db.courses.save(COURSE);
     
     // EXIT SUCCESSFULLY
