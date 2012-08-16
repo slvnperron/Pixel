@@ -3,11 +3,12 @@ var argv = require('optimist').argv;
 var numpad = require('numpad');
 var nrc = 0;
 var child;
+if(argv.c == undefined) argv.c = 1;
 
 console.log("Ran with nrc:", numpad(argv.nrc, 5));
 
 var execNext = function() {
-	child = exec('node spider.js --u ' + argv.u + ' --p ' + argv.p + ' --s ' + argv.s + ' --nrc ' + numpad(argv.nrc++, 5), function(err, stdout, stderr) {
+	child = exec('node spider.js --u ' + argv.u + ' --p ' + argv.p + ' --s ' + argv.s + ' --nrc ' + numpad(argv.nrc, 5), function(err, stdout, stderr) {
 		console.log('NRC#', numpad(argv.nrc, 5));
 		console.log('stdout:', stdout);
 		console.log('stderr:', stderr)
@@ -24,6 +25,7 @@ var execNext = function() {
 			process.exit(0);	
 		}
 		else {
+			argv.nrc += argv.c;
 			execNext();
 		}
 	});
