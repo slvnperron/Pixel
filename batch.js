@@ -21,7 +21,7 @@ var execNext = function() {
 	child.on('exit', function() {
 		console.log("Finished.");
 		
-		if(numpad(argv.nrc, 5) == '99999') {
+		if(numpad(argv.nrc, 5) == '100000') {
 			console.log("REACHED 99999! Session is over.");
 			process.exit(0);	
 		}
