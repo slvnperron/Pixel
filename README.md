@@ -44,7 +44,7 @@ An external API for the Laval University's [Pixel](https://pixel.fsg.ulaval.ca) 
 Pixel is very simple to use :
 
 ``` bash
-node spider.js --u USERNAME --p PASSWORD --s CODE --nrc NRC
+node spider --u USERNAME --p PASSWORD --s CODE --nrc NRC
 ```
 
 ### Batching NRCs in a session
