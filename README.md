@@ -55,4 +55,4 @@ Pixel can batch multiples NRCs in a single session :
 node batch --u USERNAME --p PASSWORD --s SESSION_CODE --nrc STARTING_NRC
 ```
 
-This operation will batch fetching to Pixel from STARTING_NRC to 99999 (a NRC can only have 5 digits)_
+This operation will batch fetching to Pixel from STARTING___NRC to 99999 _(a NRC can only have 5 digits)_
