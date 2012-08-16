@@ -4,12 +4,10 @@ var numpad = require('numpad');
 var nrc = 0;
 var child;
 
-
-
 console.log("Ran with nrc:", numpad(argv.nrc, 5));
 
 var execNext = function() {
-	child = exec('node spider.js --u SYPER54 --p b1idyq54 --session 201109 --nrc ' + numpad(argv.nrc++, 5), function(err, stdout, stderr) {
+	child = exec('node spider.js --u SYPER54 --p ' + argv.p + ' --session 201109 --nrc ' + numpad(argv.nrc++, 5), function(err, stdout, stderr) {
 		console.log('NRC#', numpad(argv.nrc, 5));
 		console.log('stdout:', stdout);
 		console.log('stderr:', stderr)
