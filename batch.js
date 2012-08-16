@@ -4,10 +4,7 @@ var numpad = require('numpad');
 var nrc = 0;
 var child;
 
-if(argv.nrc == 99999) {
-	console.log(finished);
-	process.exit(0);	
-}
+
 
 console.log("Ran with nrc:", numpad(argv.nrc, 5));
 
@@ -23,7 +20,14 @@ var execNext = function() {
 	
 	child.on('exit', function() {
 		console.log("Finished.");
-		execNext();
+		
+		if(numpad(argv.nrc, 5) == '99999') {
+			console.log("REACHED 99999! Session is over.");
+			process.exit(0);	
+		}
+		else {
+			execNext();
+		}
 	});
 };
 
