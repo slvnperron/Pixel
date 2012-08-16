@@ -56,7 +56,8 @@ l.on('success', function(opts) {
 			process.exit(0);
 		}
 
-COURSE.nrc = argv.nrc;
+        COURSE.nrc = argv.nrc;
+        COURSE.session = argv.session;
  
             var n = 0;
             var r;
@@ -117,8 +118,14 @@ var lookIfCompleted = function(COURSE) {
 
     // SAVE TO DATABASE
     console.log("Saving to database...");
-   
-	 db.courses.save(COURSE);
+    
+    db.courses.find({session: COURSE.session, nrc: COURSE.nrc}, function(docs){
+        if(docs != null) { // Removes duplicates
+            db.courses.remove(docs);
+        }
+    });
+    
+	db.courses.save(COURSE);
     
     // EXIT SUCCESSFULLY
     console.log("Done.");
