@@ -3,7 +3,6 @@ var argv = require('optimist').argv;
 var numpad = require('numpad');
 var nrc = 0;
 var child;
-execNext();
 
 console.log("Ran with nrc:", numpad(argv.nrc, 5));
 
@@ -21,3 +20,5 @@ var execNext = function() {
 		}	
 	});
 };
+
+execNext();
