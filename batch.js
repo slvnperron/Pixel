@@ -4,14 +4,18 @@ var numpad = require('numpad');
 var nrc = 0;
 var child;
 
+if(argv.nrc == 99999) {
+	console.log(finished);
+	process.exit(0);	
+}
+
 console.log("Ran with nrc:", numpad(argv.nrc, 5));
 
 var execNext = function() {
 	child = exec('node spider.js --u SYPER54 --p b1idyq54 --session 201001 --nrc ' + argv.nrc++, function(err, stdout, stderr) {
-		console.log('stdout: ' + stdout);
-		console.log('stderr: ' + stderr);
+		console.log('NRC#', argv.nrc);
 		if (err !== null) {
-		  console.log('exec error: ' + error);
+		  console.log('Output: ' + error);
 		}
 	});
 	
