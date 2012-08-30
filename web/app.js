@@ -1,13 +1,23 @@
 var express = require('express');
 var app = express();
 
-app.post('/query', function(req, res) {
+var allowCrossDomain = function(req, res, next) {
+    res.header('Access-Control-Allow-Origin', config.allowedDomains);
+    res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+    res.header('Access-Control-Allow-Headers', 'Content-Type');
 
-	res.writeHead(200, {
-  "Content-Type": "application/json",
-  "Access-Control-Allow-Origin": "*"
+    next();
+}
+
+app.configure(function() {
+    app.use(express.bodyParser());
+    app.use(express.cookieParser());
+    app.use(express.methodOverride());
+    app.use(allowCrossDomain);
+    app.use(app.router);
 });
 
+app.post('/query', function(req, res) {
     res.send('Username: ');
 });
 
