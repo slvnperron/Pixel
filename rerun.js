@@ -17,7 +17,7 @@ db.courses.find(function(err, docs) {
 });
 
 var execNext = function() {
-	child = exec('node spider.js --u ' + argv.u + ' --p ' + argv.p + ' --s ' + nrcs[index].session + ' --nrc ' + nrcs[index].nrc, function(err, stdout, stderr) {
+	child = exec('node spider.js --u ' + argv.u + ' --p ' + argv.p + ' --s ' + '200901' + ' --nrc ' + nrcs[index].nrc, function(err, stdout, stderr) {
 		console.log('NRC#', numpad(argv.nrc, 5));
 		console.log('stdout:', stdout);
 		console.log('stderr:', stderr)
