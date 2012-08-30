@@ -3,6 +3,9 @@ var https = require('https');
 var events = require('events');
 var util = require('util');
 var jsdom = require('jsdom');
+var Buffer = require('buffer').Buffer;
+var Iconv  = require('iconv').Iconv;
+var assert = require('assert');
 
 var Nrc = new events.EventEmitter();
 
@@ -15,13 +18,23 @@ https.get(opts, function(res) {
   
   var pageHtml = '';	
 			
-  res.on('data', function(ds) {
-    pageHtml += ds;
-  });
-  
-  res.on('end', function() {
-    Nrc.emit('success', opts, nrc, pageHtml);
-  });
+  var iconv = new Iconv('ISO-8859-1', 'UTF8');
+var chunks = [];
+var totallength = 0;
+res.on('data', function(chunk) {
+  chunks.push(chunk);
+  totallength += chunk.length;
+});
+res.on('end', function() {
+  var results = new Buffer(totallength);
+  var pos = 0;
+  for (var i = 0; i < chunks.length; i++) {
+    chunks[i].copy(results, pos);
+    pos += chunks[i].length;
+  }
+  var converted = iconv.convert(results);
+  Nrc.emit('success', opts, nrc, parser.parseString(converted.toString('utf8')));
+});
 
 }).on('error', function(e) {
   console.error(e);
