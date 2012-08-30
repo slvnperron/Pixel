@@ -16,6 +16,7 @@ app.use(express.bodyParser());
 app.post('/title', function(req, res) {
 	console.log(req.query);
 	var instantEval = function() {
+		if(!this.title) return false;
 		if(this.title.indexOf(req.query.title) != -1) return true;
 		return false;
 	};

@@ -138,7 +138,7 @@ console.log(searchCollection.serialize());
 $.ajax(
 {
     type: "POST", 
-    url: 'http://ec2-50-112-64-221.us-west-2.compute.amazonaws.com:8080/count?query=' + searchCollection.serialize(),
+    url: 'http://ec2-50-112-64-221.us-west-2.compute.amazonaws.com:8080/title?title=' + searchCollection.serialize(),
     dataType: 'json',
     data: {NRC:10265},
     error: function(e, a) {console.log("ERROR"); console.log(e);} ,
