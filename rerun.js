@@ -6,5 +6,5 @@ var collections = ["courses"]
 var db = require("mongojs").connect(databaseUrl, collections);
 
 db.courses.find(function(err, docs) {
-	console.log("All courses (" + docs + ")");
+	console.log("All courses (" + docs.length + ")");
 });
