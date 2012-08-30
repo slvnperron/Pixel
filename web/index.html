@@ -74,12 +74,21 @@
 
 	</div>
 
+
+<div class="alert" id="tooMuchResults">
+  <button type="button" class="close" data-dismiss="alert">×</button>
+  <strong>Attention!</strong> La recherche a donné plus de 25 résultats. Affinez votre recherche.
+</div>
+
 			<div id="table_container">
 			</div>
 
 
     <script type="text/javascript" charset="utf-8">
       $(document).ready(function() {
+
+      	$("#tooMuchResults").hide();
+
         window.visualSearch = VS.init({
           container  : $('#search_box_container'),
           query      : '',
@@ -98,6 +107,8 @@
 
 console.log(searchCollection.serialize());
 
+$("#tooMuchResults").hide(1000);
+
 $.ajax(
 {
     type: "POST", 
@@ -107,6 +118,10 @@ $.ajax(
     error: function(e, a) {console.log("ERROR"); console.log(e);} ,
     success: function(e) {
 console.log(e);
+
+if(e.length >= 25) {
+	$("#tooMuchResults").show(1000);
+}
 
 $("#table_container").empty();
 
