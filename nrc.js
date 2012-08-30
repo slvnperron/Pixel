@@ -14,7 +14,7 @@ Nrc.change = function(opts, nrc) {
 https.get(opts, function(res) {
   
   res.setEncoding('binary')
-  
+
   var pageHtml = '';	
 	
   var chunks = [];
@@ -25,6 +25,7 @@ https.get(opts, function(res) {
 
   res.on('end', function() {
     var converted = iconv.decode(chunks, 'iso88591');
+    console.log(converted);
     Nrc.emit('success', opts, nrc, converted);
   });
 
