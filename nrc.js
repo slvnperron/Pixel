@@ -12,11 +12,7 @@ Nrc.change = function(opts, nrc) {
     opts.path = "/liste_cours/sommaire_cours_popup_fiche_etudiant.pl?source_appel=principal&submit_action=Detailler&nrc=" + nrc;
     
 https.get(opts, function(res) {
-  
   res.setEncoding('binary')
-
-  var pageHtml = '';	
-	
   var chunks = [];
 
   res.on('data', function(chunk) {
@@ -25,7 +21,6 @@ https.get(opts, function(res) {
 
   res.on('end', function() {
     var converted = iconv.decode(chunks, 'utf8');
-    console.log(converted);
     Nrc.emit('success', opts, nrc, converted);
   });
 
