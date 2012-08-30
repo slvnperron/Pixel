@@ -18,9 +18,10 @@ db.courses.find(function(err, docs) {
 
 var execNext = function() {
 	child = exec('node spider.js --u ' + argv.u + ' --p ' + argv.p + ' --s ' + '200901' + ' --nrc ' + nrcs[index].nrc, function(err, stdout, stderr) {
-		console.log('NRC#', numpad(argv.nrc, 5));
+		console.log('NRC#', nrcs[index].nrc);
 		console.log('stdout:', stdout);
-		console.log('stderr:', stderr)
+		console.log('stderr:', stderr);
+
 		if (err !== null) {
 		  console.log('Output: ' + error);
 		}
