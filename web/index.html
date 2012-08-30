@@ -139,8 +139,7 @@ $.ajax(
     type: "POST", 
     url: 'http://ec2-50-112-64-221.us-west-2.compute.amazonaws.com:8080/query',
     dataType: 'application/json; charset=utf-8',
-    data: {},
-    success: function() {console.log("YEAH");}, 
+    data: {NRC:10265},
     error: function(e, a) {console.log("ERROR"); console.log(e);} 
 });
 

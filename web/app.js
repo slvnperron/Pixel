@@ -10,8 +10,15 @@ app.all('/*', function(req, res, next) {
   next();
 });
 
+app.use(express.bodyParser());
+
 app.post('/query', function(req, res) {
-	db.courses.find(function(err, data) {
+
+	var instantEval = function() {
+		if(typeof(res.body.NRC) != 'undefined' && res.body.NRC == this.NRC) return true;
+	};
+
+	db.courses.find(instantEval, function(err, data) {
     res.json(data);
 	}).limit(10);
 });
