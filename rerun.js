@@ -29,6 +29,5 @@ var execNext = function() {
 	child.on('exit', function() {
 		index++;
 		execNext();
-		}
 	});
 };
