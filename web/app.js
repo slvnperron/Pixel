@@ -11,7 +11,7 @@ app.all('/*', function(req, res, next) {
 });
 
 app.post('/query', function(req, res) {
-	db.courses.find(function(data) {
+	db.courses.find(function(err, data) {
     res.json(data);
 	});
 });
