@@ -13,7 +13,7 @@ app.all('/*', function(req, res, next) {
 app.use(express.bodyParser());
 
 app.post('/query', function(req, res) {
-
+console.log(res.body.NRC);
 	var instantEval = function() {
 		if(typeof(res.body.NRC) != 'undefined' && res.body.NRC == this.NRC) return true;
 		return false;
