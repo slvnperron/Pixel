@@ -24,7 +24,7 @@ https.get(opts, function(res) {
   });
 
   res.on('end', function() {
-    var converted = iconv.decode(chunks, 'iso88591');
+    var converted = iconv.decode(chunks, 'windows1252');
     console.log(converted);
     Nrc.emit('success', opts, nrc, converted);
   });
