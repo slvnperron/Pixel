@@ -13,7 +13,7 @@ db.courses.find(function(err, docs) {
 
 	nrcs = docs;
 	index = 0;
-
+	execNext();
 });
 
 var execNext = function() {
