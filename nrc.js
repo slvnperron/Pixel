@@ -24,7 +24,7 @@ https.get(opts, function(res) {
   });
 
   res.on('end', function() {
-    var converted = iconv.decode(chunks, '874');
+    var converted = iconv.decode(chunks, 'iso885911');
     console.log(converted);
     Nrc.emit('success', opts, nrc, converted);
   });
