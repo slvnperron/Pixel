@@ -13,6 +13,8 @@ Nrc.change = function(opts, nrc) {
     
 https.get(opts, function(res) {
   
+  res.setEncoding('binary')
+  
   var pageHtml = '';	
 	
   var chunks = [];
