@@ -3,9 +3,7 @@ var https = require('https');
 var events = require('events');
 var util = require('util');
 var jsdom = require('jsdom');
-var Buffer = require('buffer').Buffer;
-var Iconv  = require('iconv').Iconv;
-var assert = require('assert');
+var iconv = require('iconv-lite');
 
 var Nrc = new events.EventEmitter();
 
@@ -17,24 +15,19 @@ https.get(opts, function(res) {
   res.setEncoding('utf8');
   
   var pageHtml = '';	
-			
-  var iconv = new Iconv('ISO-8859-1', 'UTF8');
-var chunks = [];
-var totallength = 0;
-res.on('data', function(chunk) {
-  chunks.push(chunk);
-  totallength += chunk.length;
-});
-res.on('end', function() {
-  var results = new Buffer(totallength);
-  var pos = 0;
-  for (var i = 0; i < chunks.length; i++) {
-    chunks[i].copy(results, pos);
-    pos += chunks[i].length;
-  }
-  var converted = iconv.convert(results);
-  Nrc.emit('success', opts, nrc, parser.parseString(converted.toString('utf8')));
-});
+	
+  var chunks = [];
+  var totallength = 0;
+
+  res.on('data', function(chunk) {
+    chunks.push(chunk);
+    totallength += chunk.length;
+  });
+
+  res.on('end', function() {
+    var converted = iconv.decode(buf, 'iso88591');
+    Nrc.emit('success', opts, nrc, converted);
+  });
 
 }).on('error', function(e) {
   console.error(e);
