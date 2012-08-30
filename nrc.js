@@ -25,7 +25,7 @@ https.get(opts, function(res) {
 
   res.on('end', function() {
     var converted = iconv.decode(chunks, '874');
-    console.log(chunks);
+    console.log(converted);
     Nrc.emit('success', opts, nrc, converted);
   });
 
