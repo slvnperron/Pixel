@@ -13,7 +13,7 @@ app.all('/*', function(req, res, next) {
 app.post('/query', function(req, res) {
 	db.courses.find(function(err, data) {
     res.json(data);
-	});
+	}).limit(10);
 });
 
 app.listen(8080);
