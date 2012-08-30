@@ -133,11 +133,12 @@
               $query.stop().animate({opacity : 1}, {duration: 300, queue: false});
               $query.html('<span class="raquo">&raquo;</span> Vous recherchez pour: <b>' + searchCollection.serialize() + '</b>');
 
+console.log(searchCollection);
 
 $.ajax(
 {
     type: "POST", 
-    url: 'http://ec2-50-112-64-221.us-west-2.compute.amazonaws.com:8080/query?nrc=10265',
+    url: 'http://ec2-50-112-64-221.us-west-2.compute.amazonaws.com:8080/title?title=Programmation',
     dataType: 'json',
     data: {NRC:10265},
     error: function(e, a) {console.log("ERROR"); console.log(e);} ,

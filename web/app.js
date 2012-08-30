@@ -13,9 +13,9 @@ app.all('/*', function(req, res, next) {
 
 app.use(express.bodyParser());
 
-app.post('/query', function(req, res) {
+app.post('/title', function(req, res) {
 	var instantEval = function() {
-		if(typeof(req.query.NRC) != 'undefined' && req.query.NRC == this.NRC) return true;
+		if(this.title.indexOf(req.query.title) != -1) return true;
 		return false;
 	};
 
