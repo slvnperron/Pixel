@@ -15,12 +15,12 @@ app.use(express.bodyParser());
 
 app.post('/title', function(req, res) {
 	console.log(req.query);
-	var instantEval = function() {
+	var instantEval = "function() {
 		console.log(this);
 		if(!this.title) return false;
 		if(this.title.indexOf(req.query.title) != -1) return true;
 		return false;
-	};
+	}";
 
 	db.courses.find(instantEval).limit(10, function(err, data) {
     res.json(data);
