@@ -16,7 +16,7 @@ app.use(express.bodyParser());
 app.post('/title', function(req, res) {
 	console.log(req.query);
 
-	db.courses.find({title: new RegExp("prog")}).limit(10, function(err, data) {
+	db.courses.find({title: new RegExp(req.query.title, 'i')}).limit(10, function(err, data) {
     res.json(data);
 	});
 });
