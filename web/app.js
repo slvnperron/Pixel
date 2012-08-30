@@ -11,7 +11,9 @@ app.all('/*', function(req, res, next) {
 });
 
 app.post('/query', function(req, res) {
-    res.json(db.courses.find());
+	db.courses.find(function(data) {
+    res.json(data);
+	});
 });
 
 app.listen(8080);
