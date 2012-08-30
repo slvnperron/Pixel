@@ -9,7 +9,7 @@ var nrc = 0;
 var child;
 
 db.courses.find(function(err, docs) {
-	console.log("All courses (" + docs.length + ")");
+	console.log("All courses (" + docs + ")");
 });
 
 var execNext = function() {
