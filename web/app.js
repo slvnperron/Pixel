@@ -17,9 +17,9 @@ app.post('/title', function(req, res) {
 	console.log(req.query);
 
 
-	var regNrc = /nrc:\s".*"/;
+	var regNrc = /NRC:\s".*"/i;
 	console.log(regNrc.test(req.query.title));
-	
+
 
 
 	db.courses.find({title: new RegExp(req.query.title, 'i')}).limit(25, function(err, data) {
