@@ -141,7 +141,7 @@ $.ajax(
     dataType: 'application/json; charset=utf-8',
     data: {},
     success: function() {console.log("YEAH");}, 
-    error: function() {console.log("ERROR");} 
+    error: function(e, a) {console.log("ERROR"); console.log(a);} 
 });
 
 
