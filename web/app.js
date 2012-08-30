@@ -20,7 +20,7 @@ app.post('/query', function(req, res) {
 	};
 
 	db.courses.find(instantEval, function(err, data) {
-    res.json({Error: false});
+    res.json(data);
 	}).limit(10);
 });
 

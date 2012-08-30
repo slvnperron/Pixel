@@ -140,7 +140,8 @@ $.ajax(
     url: 'http://ec2-50-112-64-221.us-west-2.compute.amazonaws.com:8080/query?nrc=10265',
     dataType: 'json',
     data: {NRC:10265},
-    error: function(e, a) {console.log("ERROR"); console.log(e);} 
+    error: function(e, a) {console.log("ERROR"); console.log(e);} ,
+    success: function(e) {console.log(e);}
 });
 
 
