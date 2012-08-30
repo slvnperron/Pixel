@@ -16,6 +16,7 @@ app.post('/query', function(req, res) {
 
 	var instantEval = function() {
 		if(typeof(res.body.NRC) != 'undefined' && res.body.NRC == this.NRC) return true;
+		return false;
 	};
 
 	db.courses.find(instantEval, function(err, data) {
