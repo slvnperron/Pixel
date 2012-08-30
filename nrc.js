@@ -12,7 +12,6 @@ Nrc.change = function(opts, nrc) {
     opts.path = "/liste_cours/sommaire_cours_popup_fiche_etudiant.pl?source_appel=principal&submit_action=Detailler&nrc=" + nrc;
     
 https.get(opts, function(res) {
-  res.setEncoding('utf8');
   
   var pageHtml = '';	
 	
