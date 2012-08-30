@@ -58,7 +58,7 @@ l.on('success', function(opts) {
 		}
 
         COURSE.nrc = argv.nrc;
-        COURSE.session = argv.session;
+        COURSE.session = argv.s;
  
             var n = 0;
             var r;
