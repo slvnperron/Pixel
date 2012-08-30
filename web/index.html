@@ -74,45 +74,8 @@
 
 	</div>
 
-<table class="table table-hover">
-              <thead>
-                <tr>
-                  <th>NRC</th>
-                  <th>Numéro du cours</th>
-                  <th>Num du cours</th>
-                  <th>Professeur</th>
-                  <th>Session</th>
-                  <th>Actions</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>88091</td>
-                  <td>GLO-4002</td>
-                  <td>Programmation orienté objet</td>
-                  <td>Thierry Eude</td>
-                  <td>H 2010</td>
-                  <td><a class="btn btn-small" href="#"><i class="icon-signal"></i></a></td>
-                </tr>
-                <tr>
-                  <td>88091</td>
-                  <td>GLO-4002</td>
-                  <td>Programmation orienté objet</td>
-                  <td>Thierry Eude</td>
-                  <td>H 2010</td>
-                  <td><a href="#">Voir...</a></td>
-                </tr>
-                <tr>
-                  <td>88091</td>
-                  <td>GLO-4002</td>
-                  <td>Programmation orienté objet</td>
-                  <td>Thierry Eude</td>
-                  <td>H 2010</td>
-                  <td><a href="#">Voir...</a></td>
-                </tr>
-              </tbody>
-            </table>
-
+			<div id="table_container">
+			</div>
 
 
     <script type="text/javascript" charset="utf-8">
@@ -143,8 +106,22 @@ $.ajax(
     data: {NRC:10265},
     error: function(e, a) {console.log("ERROR"); console.log(e);} ,
     success: function(e) {
+console.log(e);
 
-    	// e contient l'array des cours trouvés
+$("#table_container").empty();
+
+$("#table_container").append('<table class="table table-hover" id="courses_table"><thead><tr><th>NRC</th><th>Numéro du cours</th><th>Titre du cours</th><th>Professeur</th><th>Session</th><th>Actions</th></tr></thead><tbody>');
+
+    	$.each(e, function() {
+
+var row = '<tr><td>' + this.nrc + '</td><td>' + this.number + '</td><td>' + this.title + '</td><td>' + this.teachers + '</td><td>N/A</td><td><a class="btn btn-small" href="#"><i class="icon-signal"></i></a></td></tr>';
+
+$("#courses_table").append(row);
+
+
+    	});
+
+    	$("#courses_table").append("</tbody></table>");
 
     }
 });
@@ -188,7 +165,7 @@ $.ajax(
             },
             facetMatches : function(callback) {
               callback([
-                'NRC', 'Nom', 'Numéro', 'Professeur','Année', 'Session', 'Programme'
+                'NRC', 'Titre', 'Numéro', 'Professeur','Année', 'Session', 'Programme'
               ]);
             }
           }

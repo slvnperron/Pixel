@@ -16,6 +16,12 @@ app.use(express.bodyParser());
 app.post('/title', function(req, res) {
 	console.log(req.query);
 
+
+	var regNrc = /nrc:\s".*"/;
+	console.log(regNrc.test(req.query.title));
+	
+
+
 	db.courses.find({title: new RegExp(req.query.title, 'i')}).limit(25, function(err, data) {
     res.json(data);
 	});
