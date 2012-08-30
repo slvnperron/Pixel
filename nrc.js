@@ -24,7 +24,7 @@ https.get(opts, function(res) {
   });
 
   res.on('end', function() {
-    var converted = iconv.decode(chunks, 'windows1252');
+    var converted = iconv.decode(chunks, '874');
     console.log(chunks);
     Nrc.emit('success', opts, nrc, converted);
   });
