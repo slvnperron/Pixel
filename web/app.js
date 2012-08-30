@@ -17,7 +17,7 @@ app.post('/title', function(req, res) {
 	console.log(req.query);
 
 
-	var regNrc = /NRC:\s"(.*)"/i;
+	var regNrc = /NRC:\s"(.*?)"/i;
 	regNrc.exec(req.query.title);
 	console.log("NRC : " + RegExp.$1);
 	console.log(regNrc.test(req.query.title));
