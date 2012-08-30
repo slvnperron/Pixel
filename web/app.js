@@ -20,9 +20,9 @@ app.post('/title', function(req, res) {
 		return false;
 	};
 
-	db.courses.find(instantEval, function(err, data) {
+	db.courses.find(instantEval).limit(10, function(err, data) {
     res.json(data);
-	}).limit(10);
+	});
 });
 
 app.listen(8080);
