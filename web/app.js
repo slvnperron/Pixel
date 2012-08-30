@@ -14,9 +14,8 @@ app.all('/*', function(req, res, next) {
 app.use(express.bodyParser());
 
 app.post('/query', function(req, res) {
-console.log(req.query);
 	var instantEval = function() {
-		if(typeof(res.body.NRC) != 'undefined' && res.body.NRC == this.NRC) return true;
+		if(typeof(req.query.NRC) != 'undefined' && req.query.NRC == this.NRC) return true;
 		return false;
 	};
 
