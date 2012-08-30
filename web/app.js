@@ -3,6 +3,7 @@ var app = express();
 var databaseUrl = "127.0.0.1/pixel"; // "username:password@example.com/mydb"
 var collections = ["courses"]
 var db = require("mongojs").connect(databaseUrl, collections);
+var inspect = require('util').inspect;
 
 app.all('/*', function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
@@ -13,7 +14,7 @@ app.all('/*', function(req, res, next) {
 app.use(express.bodyParser());
 
 app.post('/query', function(req, res) {
-console.log(res.body.NRC);
+console.log(inspect(res, false));
 	var instantEval = function() {
 		if(typeof(res.body.NRC) != 'undefined' && res.body.NRC == this.NRC) return true;
 		return false;
