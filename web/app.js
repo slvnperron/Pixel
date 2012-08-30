@@ -25,7 +25,7 @@ app.post('/title', function(req, res) {
 
 	if(regNrc.test(req.query.title)) {
 		regNrc.exec(req.query.title);
-		queryObj.nrc = new RegExp(RegExp.$1, 'i');
+		queryObj.nrc = RegExp.$1;
 		console.log("NRC " + RegExp.$1 + " taken.");
 	}
 
