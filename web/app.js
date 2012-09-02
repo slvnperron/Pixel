@@ -73,7 +73,7 @@ app.post('/title', function(req, res) {
 			queryObj.$where = "/" + yr + RegExp.$1 + "/.test(this.session)";
 		}
 		else {
-			queryObj.$where = "/" + RegExp.$1 + "/.test(this.session);";
+			queryObj.$where = "/" + RegExp.$1 + "/.test(this.session)";
 		}
 		
 		console.log("Année " + RegExp.$1 + " taken.");
