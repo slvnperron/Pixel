@@ -59,13 +59,23 @@ app.post('/title', function(req, res) {
 
 	if(regYear.test(req.query.title)) {
 		regYear.exec(req.query.title);
-		queryObj.$where += "/" + RegExp.$1 + "/.test(this.session);";
+		queryObj.$where = "/" + RegExp.$1 + "/.test(this.session)";
 		console.log("Année " + RegExp.$1 + " taken.");
 	}
 
 	if(regSession.test(req.query.title)) {
 		regSession.exec(req.query.title);
-		queryObj.$where += "/" + RegExp.$1 + "/.test(this.session);";
+
+		if(regYear.test(req.query.title)) {
+			regYear.exec(req.query.title);
+			var yr = RegExp.$1;
+			regSession.exec(req.query.title);
+			queryObj.$where = "/" + yr + RegExp.$1 + "/.test(this.session)";
+		}
+		else {
+			queryObj.$where = "/" + RegExp.$1 + "/.test(this.session);";
+		}
+		
 		console.log("Année " + RegExp.$1 + " taken.");
 	}
 
