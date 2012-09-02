@@ -59,13 +59,13 @@ app.post('/title', function(req, res) {
 
 	if(regYear.test(req.query.title)) {
 		regYear.exec(req.query.title);
-		queryObj.session = new RegExp(RegExp.$1, 'i');
+		queryObj.$where = "/" + RegExp.$1 + "/.test(this.session)";
 		console.log("Année " + RegExp.$1 + " taken.");
 	}
 
 	if(regSession.test(req.query.title)) {
 		regSession.exec(req.query.title);
-		queryObj.session = new RegExp(RegExp.$1, 'i');
+		queryObj.$where = "/" + RegExp.$1 + "/.test(this.session)";
 		console.log("Année " + RegExp.$1 + " taken.");
 	}
 
