@@ -87,6 +87,58 @@
 
 	<div id="table_container"></div>
 
+	<!-- Advanced results -->
+
+	<div class="modal" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	  <div class="modal-header">
+	    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+	    <h3 id="myModalLabel"></h3>
+	  </div>
+	  <div class="modal-body">
+	    
+		<div class="tabbable">
+		  <ul class="nav nav-tabs">
+		    <li class="active"><a href="#tab1" data-toggle="tab">Infos</a></li>
+
+		    <li class="dropdown">
+		    <a class="dropdown-toggle"
+		       data-toggle="dropdown"
+		       href="#">
+		        Examens
+		        <b class="caret"></b>
+		      </a>
+		    <ul class="dropdown-menu" id="dpmExamens">
+		      <li><a href="#">Examen 1</a></li>
+		    </ul>
+		  </li>
+
+
+		  <li class="dropdown">
+		    <a class="dropdown-toggle"
+		       data-toggle="dropdown"
+		       href="#">
+		        Travaux
+		        <b class="caret"></b>
+		      </a>
+		    <ul class="dropdown-menu" id="dpmTravaux">
+		      <li><a href="#">Travail 1</a></li>
+		    </ul>
+		  </li>
+
+		  </ul>
+		  <div class="tab-content">
+		    <div class="tab-pane active" id="tab1">
+		      <p>I'm in Section 1.</p>
+		    </div>
+		  </div>
+		</div>
+
+	  </div>
+	  <div class="modal-footer">
+	    <button class="btn" data-dismiss="modal" aria-hidden="true">Fermer</button>
+	  </div>
+	</div>
+
 	<!-- Fork me -->
 
 	<a href="https://github.com/slvnperron/Pixel"><img style="position: absolute; top: 0; right: 0; border: 0; z-index: 1000000" src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub"></a>
