@@ -99,11 +99,28 @@ body > .navbar .brand:hover {
 }
 
 .coffee{
-  float: left;
-  padding-left: 20px;
+  position: absolute;
+  padding-left: 0px;
   padding-top: 40px;
+  text-align: center;
+  width: 230px;
 }
 
-.coffee a {
-margin-left: 20px;
+.modal {
+  width: 500px;
+  height: 500px;
+}
+
+.modal-body {
+  height: 360px;
+  min-height: 360px;
+}
+
+.tab-content {
+  overflow: scroll;
+  height: 300px;
+}
+
+body.modal-open {
+    overflow: hidden;
 }
