@@ -51,7 +51,7 @@
 				<div class="nav-collapse collapse">
 					<ul class="nav">
 						<li class="active">
-							<a href="./home.html">Recherche</a>
+							<a href="#">Recherche</a>
 						</li>
 						<li class="">
 							<a href="./doc.html">Documentation</a>
@@ -70,6 +70,10 @@
 	<!-- Search box -->
 
 	<div id="subhead" class="jumbotron"> 
+
+		<div class="search_help">
+			<span><b>Essayez avec ces mots-clés:</b><br>Titre, NRC, Numéro, Professeur, Programme, Année, Session</span>
+		</div>
 
 		<div class="coffee">
 			<h5>Vous appréciez ce site ?</h5>
@@ -141,10 +145,184 @@
 
 		  </ul>
 		  <div class="tab-content">
+
 		    <div class="tab-pane active" id="tab1">
-		      <p>I'm in Section 1.</p>
+
+		     	<table class="table table-bordered table-striped">
+		     		<thead>
+		     			<tr>
+		     				<td><b>Description</b></td>
+		     			</tr>
+		     		</thead>
+
+		     		<tbody>
+		     			<tr>
+		     				<td id='tab1_description'></td>
+		     			</tr>
+
+		     			<tr>
+		     				<td><b>Session</b></td>
+		     			</tr>
+		     			<tr>
+		     				<td id='tab1_session'></td>
+		     			</tr>
+
+		     			<tr>
+		     				<td><b>NRC</b></td>
+		     			</tr>
+		     			<tr>
+		     				<td id='tab1_nrc'></td>
+		     			</tr>
+
+		     			<tr>
+		     				<td><b>Numéro</b></td>
+		     			</tr>
+		     			<tr>
+		     				<td id='tab1_number'></td>
+		     			</tr>
+
+		     			<tr>
+		     				<td><b>Nombre d'élèves</b></td>
+		     			</tr>
+		     			<tr>
+		     				<td id='tab1_count'></td>
+		     			</tr>
+
+		     			<tr>
+		     				<td><b>Liste de courriels</b></td>
+		     			</tr>
+		     			<tr>
+		     				<td><a href="mailto:#" id='tab1_email'></a></td>
+		     			</tr>
+
+		     			<tr>
+		     				<td><b>Professeur</b></td>
+		     			</tr>
+		     			<tr>
+		     				<td id='tab1_teacher'></td>
+		     			</tr>
+
+		     			<tr>
+		     				<td><b>Chargé de cours</b></td>
+		     			</tr>
+		     			<tr>
+		     				<td id='tab1_helper'></td>
+		     			</tr>
+
+		     			<tr>
+		     				<td><b>Plan de cours</b></td>
+		     			</tr>
+		     			<tr>
+		     				<td><a id='tab1_plan' href="#" target="_blank"></a></td>
+		     			</tr>
+
+		     			<tr>
+		     				<td><b>Site web</b></td>
+		     			</tr>
+		     			<tr>
+		     				<td><a href="#" id='tab1_web' tagret="_blank"></a></td>
+		     			</tr>
+
+		     		</tbody>
+				</table>
 
 		    </div>
+
+
+		    <div class="tab-pane" id="tab2">
+		    	<table class="table table-bordered table-striped">
+		     		<thead>
+		     			<tr>
+		     				<td><b>Nom</b></td>
+		     			</tr>
+		     		</thead>
+
+		     		<tbody>
+		     			<tr>
+		     				<td id='tab2_nom'></td>
+		     			</tr>
+
+		     			<tr>
+		     				<td><b>Date / heure</b></td>
+		     			</tr>
+		     			<tr>
+		     				<td id='tab2_date'></td>
+		     			</tr>
+
+		     			<tr>
+		     				<td><b>Lieu</b></td>
+		     			</tr>
+		     			<tr>
+		     				<td id='tab2_lieu'></td>
+		     			</tr>
+
+		     			<tr>
+		     				<td><b>Ponderation</b></td>
+		     			</tr>
+		     			<tr>
+		     				<td id='tab2_ponderation'></td>
+		     			</tr>
+
+		     			<tr>
+		     				<td><b>Équipes</b></td>
+		     			</tr>
+		     			<tr>
+		     				<td id='tab2_team'></td>
+		     			</tr>
+
+		     			<tr>
+		     				<td><b>Documents autorisés</b></td>
+		     			</tr>
+		     			<tr>
+		     				<td id='tab2_docs'></td>
+		     			</tr>
+
+		     			<tr>
+		     				<td><b>Moyenne</b></td>
+		     			</tr>
+		     			<tr>
+		     				<td id='tab2_moyenne'></td>
+		     			</tr>
+
+		     			<tr>
+		     				<td><b>Nombre de copies corrigées</b></td>
+		     			</tr>
+		     			<tr>
+		     				<td id='tab2_count'></td>
+		     			</tr>
+
+		     			<tr>
+		     				<td><b>Écart-type</b></td>
+		     			</tr>
+		     			<tr>
+		     				<td id='tab2_derivation'></td>
+		     			</tr>
+
+		     			<tr>
+		     				<td><b>Résultat maximum</b></td>
+		     			</tr>
+		     			<tr>
+		     				<td id='tab2_maximum'></td>
+		     			</tr>
+
+		     			<tr>
+		     				<td><b>Résultat minimum</b></td>
+		     			</tr>
+		     			<tr>
+		     				<td id='tab2_minimum'></td>
+		     			</tr>
+
+		     			<tr>
+		     				<td><b>Médiane</b></td>
+		     			</tr>
+		     			<tr>
+		     				<td id='tab2_median'></td>
+		     			</tr>
+
+		     		</tbody>
+				</table>
+			</div>
+
 
 		  </div>
 		</div>

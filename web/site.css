@@ -124,3 +124,17 @@ body > .navbar .brand:hover {
 body.modal-open {
     overflow: hidden;
 }
+
+.search_help {
+  position: absolute;
+  top: 215px;
+  left: 100px;
+  width: 250px;
+  height: 65px;
+  background-color: black;
+  opacity: 0.55;
+}
+
+.search_help span {
+  margin: 10px;
+}
