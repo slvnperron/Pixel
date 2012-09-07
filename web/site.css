@@ -4,6 +4,12 @@ h1 {
 	line-height: 60px;
 }
  
+h1 .beta {
+  display: inline;
+  font-size: 30px;
+  color: #dc5149;
+}
+
 p {
 	font-family: 'Vollkorn', Georgia, Times, serif;
 	font-size: 20px;
